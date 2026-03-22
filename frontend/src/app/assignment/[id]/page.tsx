@@ -45,7 +45,7 @@ export default function AssignmentOutput() {
     try {
       if (activeAssignment?._id) {
         useAssignmentStore.getState().updateAssignmentStatus(activeAssignment._id, 'Generating');
-        await fetch(`http://localhost:3001/api/assignments/${activeAssignment._id}/regenerate`, { method: 'POST' });
+        await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001'}/api/assignments/${activeAssignment._id}/regenerate`, { method: 'POST' });
       }
     } catch (err) {
       console.error('Failed to regenerate');
