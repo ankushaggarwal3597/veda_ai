@@ -17,6 +17,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/assignments', assignmentRoutes);
+app.get('/', (req, res) => {
+  res.send('Server is running ✅');
+});
 
 // Pass io to request so routes/controllers can use it if needed
 app.set('io', io);
